@@ -1,4 +1,4 @@
-node main.js -c teste10.json &&
+node main.js -c teste01.json &&
 node main.js -c teste02.json &&
 node main.js -c teste03.json &&
 node main.js -c teste04.json &&
