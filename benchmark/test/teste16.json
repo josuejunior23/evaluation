@@ -1,11 +1,11 @@
 {
   "blockchain": {
-    "type": "fabric",
-    "config": "benchmark/simple/fabric.json"
+    "type": "sawtooth",
+    "config": "benchmark/simple/sawtooth-2peers.json"
   },
   "command" : {
-    "start": "docker-compose -f network/fabric/simplenetwork/docker-compose.yaml up -d",
-    "end" : "docker-compose -f network/fabric/simplenetwork/docker-compose.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)"
+    "start": "docker-compose -f network/sawtooth/simplenetwork/sawtooth-default-validators-simple.yaml up -d",
+    "end" : "docker-compose -f network/sawtooth/simplenetwork/sawtooth-default-validators-simple.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)"
   },
   "test": {
     "name": "simple",
@@ -16,7 +16,7 @@
     },
     "rounds": [{
         "label" : "open",
-        "txNumber" : [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000],
+        "txNumber" : [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000],
         "rateControl" : [
           {"type": "fixed-rate", "opts": {"tps" : 200}},  
           {"type": "fixed-rate", "opts": {"tps" : 200}},  
@@ -26,7 +26,8 @@
           {"type": "fixed-rate", "opts": {"tps" : 200}},  
           {"type": "fixed-rate", "opts": {"tps" : 200}},  
           {"type": "fixed-rate", "opts": {"tps" : 200}},  
-          {"type": "fixed-rate", "opts": {"tps" : 200}}, 
+          {"type": "fixed-rate", "opts": {"tps" : 200}},  
+          {"type": "fixed-rate", "opts": {"tps" : 200}},  
           {"type": "fixed-rate", "opts": {"tps" : 200}}],
         "arguments": { "money": 10000, "txnPerBatch":20},
         "callback" : "benchmark/simple/open.js"

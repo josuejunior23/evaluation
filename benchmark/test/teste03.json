@@ -12,22 +12,23 @@
     "description" : "This is an example benchmark for caliper, to test the backend DLT's performance with simple account opening & querying transactions",
     "clients": {
       "type": "local",
-      "number": 50 
+      "number": 10 
     },
     "rounds": [{
         "label" : "open",
-        "txNumber" : [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000],
+        "txNumber" : [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000],
         "rateControl" : [
-          {"type": "fixed-rate", "opts": {"tps" : 200}},  
-          {"type": "fixed-rate", "opts": {"tps" : 200}},  
-          {"type": "fixed-rate", "opts": {"tps" : 200}},  
-          {"type": "fixed-rate", "opts": {"tps" : 200}},  
-          {"type": "fixed-rate", "opts": {"tps" : 200}},  
-          {"type": "fixed-rate", "opts": {"tps" : 200}},  
-          {"type": "fixed-rate", "opts": {"tps" : 200}},  
-          {"type": "fixed-rate", "opts": {"tps" : 200}},  
-          {"type": "fixed-rate", "opts": {"tps" : 200}}, 
-          {"type": "fixed-rate", "opts": {"tps" : 200}}],
+          {"type": "fixed-rate", "opts": {"tps" : 100}},  
+          {"type": "fixed-rate", "opts": {"tps" : 100}},  
+          {"type": "fixed-rate", "opts": {"tps" : 100}},  
+          {"type": "fixed-rate", "opts": {"tps" : 100}},  
+          {"type": "fixed-rate", "opts": {"tps" : 100}},  
+          {"type": "fixed-rate", "opts": {"tps" : 100}},  
+          {"type": "fixed-rate", "opts": {"tps" : 100}},  
+          {"type": "fixed-rate", "opts": {"tps" : 100}},  
+          {"type": "fixed-rate", "opts": {"tps" : 100}},  
+          {"type": "fixed-rate", "opts": {"tps" : 100}},  
+          {"type": "fixed-rate", "opts": {"tps" : 100}}],
         "arguments": { "money": 10000, "txnPerBatch":20},
         "callback" : "benchmark/simple/open.js"
       }]
